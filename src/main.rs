@@ -36,8 +36,8 @@ fn hello_world(req: &mut Request) -> IronResult<Response> {
     let delta_ms = (delta as f64) / 1000000.0;
     
     // prepare an html string
-    let mut msg_text: String = "<html><head><title></title></head><body>So I guess bill is impressed. \
-                                But how can they make money?<br> \
+    let mut msg_text: String = "<html><head><title></title></head><body>It's a pretty fast webserver.<br>\
+                                And templating isn't TOO bad.<br>\
                                 It took this long to get here (ms): ".to_owned();
     let msg_delta: &String = &delta_ms.to_string();
     msg_text.push_str(msg_delta);
