@@ -9,6 +9,7 @@ use time::precise_time_ns;
 // mime types
 // use iron::mime::{Mime, TopLevel, SubLevel, Attr, Value};
 // headers
+use iron::modifiers::Header;
 use iron::headers::{ContentType};
  
 struct ResponseTime;
@@ -46,8 +47,11 @@ fn hello_world(req: &mut Request) -> IronResult<Response> {
     println!("Request middle: {} ms", delta_ms);
     
     // set up response
-    let mut html_res = Response::with((iron::status::Ok, msg_text));
-    html_res.headers.set(ContentType::html());
+    let html_res = Response::with((
+        iron::status::Ok,
+        msg_text,
+        Header(ContentType::html())
+    ));
     
     // execute response
     Ok(html_res)
