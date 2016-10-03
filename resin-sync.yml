@@ -1,0 +1,2 @@
+#The target for this file is a Raspberry Pi 3, you may need to update the line below if you are using a different device.
+before: 'cargo build --target=armv7-unknown-linux-gnueabihf && cp target/armv7-unknown-linux-gnueabihf/debug/rust-web-arm target/debug/rust-web-arm && rm -r target/armv7-unknown-linux-gnueabihf/'
